@@ -2,6 +2,7 @@ import datetime
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 class Todo(models.Model):
     title = models.CharField(max_length=30)
@@ -11,3 +12,8 @@ class Todo(models.Model):
         User,
         on_delete=models.CASCADE
     )
+
+    def time_passed(self):
+        today = date.today()
+        difference = today - self.created_at
+        return difference.days
