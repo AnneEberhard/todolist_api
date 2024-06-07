@@ -1,0 +1,16 @@
+
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "TodoList Api",
+            "database": "/db.sqlite3",
+            "connectionTimeout": 15,
+            "sqltools.connections": [
+                {
+                    "previewLimit": 50,
+                    "driver": "SQLite",
+                    "name": "todolist",
+                    "database": "${workspaceFolder:todolist_api}/db.sqlite3"
+                }
+            ]
+        }
