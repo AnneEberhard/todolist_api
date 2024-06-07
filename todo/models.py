@@ -17,3 +17,9 @@ class Todo(models.Model):
         today = date.today()
         difference = today - self.created_at
         return difference.days
+
+class Message(models.Model):
+    text = models.CharField(max_length=500)
+    created_at = models.DateField(default=date.today)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_messages', null=True)
